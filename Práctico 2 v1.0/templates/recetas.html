@@ -1,0 +1,16 @@
+{% extends "base_template.html" %}
+{% block title %}Recetas{% endblock %}
+{% block content %}
+<body>
+    <h1>Sancho Panza</h1>
+    <hr/>
+    <h2>Recetas</h2>
+    {% for receta in recetas %}
+        <form action="{{ url_for('mostrar_recetas') }}" method="post" class="container">
+            <input type="hidden" id="idReceta" name="idReceta" value="{{receta.id}}" />
+            <input type="hidden" id="anterior" name="anterior" value="{{ anterior }}" />
+            <input type="submit" value="{{ receta.nombre }}" style="width: 200px;" />
+        </form>
+    {% endfor %}
+</body>
+{% endblock %}

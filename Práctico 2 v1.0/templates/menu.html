@@ -1,0 +1,13 @@
+{% extends "base_template.html" %}
+{% block title %}Menu{% endblock %}
+{% block content %}
+<body>
+    <h1>Sancho Panza</h1><hr/>
+    <ul>
+        <li><a href="{{ url_for('ingresar_receta') }}">Nueva receta</a></li><br>
+        <li><a href="{{ url_for('consultar_ranking') }}">Ranking</a></li><br>
+        <li><a href="{{ url_for('consultar_tiempo_elaboracion') }}">Tiempo de elaboración</a></li><br>
+        <li><a href="{{ url_for('consultar_receta_ingrediente') }}">Receta por ingrediente</a></li><br>
+    </ul>
+</body>
+{% endblock %}

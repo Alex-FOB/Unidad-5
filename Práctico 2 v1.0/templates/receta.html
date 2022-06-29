@@ -1,0 +1,41 @@
+{% extends "base_template.html" %}
+{% block title %}Receta{% endblock %}
+{% block content %}
+<body>
+    <h1>Sancho Panza</h1>
+    <hr/>
+    <h2>Datos de la receta</h2><br>
+    <div class="container">
+    <label for="nombre_usuario">Nombre: </label>
+    <input type="text" value="{{ receta.usuario.nombre }}" readonly="readonly" />
+    <br>
+    <label for="nombre_receta">Nombre de la receta: </label>
+    <input type="text" value="{{ receta.nombre }}" readonly="readonly" />
+    <br>
+    <label for="tiempo">Tiempo estimado: </label>
+    <input type="text" value="{{ receta.tiempo }}" readonly="readonly" />
+    <br>
+    <label for="elaboracion">Elaboración: </label><br>
+    <textarea name="elaboracion" placeholder="{{ receta.elaboracion }}" cols="60" rows="4" readonly="readonly"></textarea>
+    <br>
+    <label for="ingredientes">Ingredientes necesarios:</label><br>
+    {% for ingrediente in ingredientes %}
+        <input type="text" value="{{ ingrediente.nombre }}" readonly />
+        <input type="text" value="{{ ingrediente.cantidad }}" readonly />
+        <input type="text" value="{{ ingrediente.unidad }}" readonly /><br>
+    {% endfor %}
+    <br>
+    {{ receta.fecha }}
+    <br><br>
+    <form action="{{ url_for('receta_datos') }}" method="post" class="container">
+        <input type="text" value="{{ receta.cantidadmegusta }}" style="width: 20px;" readonly />
+        {% if band %}
+            {% if usuario.nombre != receta.usuario.nombre %}
+                <input type="hidden" id="anterior" name="anterior" value="{{ anterior }}" />
+                <input type="hidden" id="idReceta" name="idReceta" value="{{ receta.id }}" />
+                <input type="submit" value="Me gusta" />
+            {% endif %}
+        {% endif %}
+    </form>	
+</body>
+{% endblock %}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Aplicación</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
+    </head>
+    <body>
+        <h1>Sancho Panza</h1>
+        <hr/>
+        <h2>Ingresar Usuario</h2><br><br>
+        <form action="{{ request.path }}" method="post" class="container">
+            <label for="correo">Correo Electrónico</label><br>
+            <input type="text" name="correo" placeholder="unknown@unknown.com" required /><br>
+
+            <label for="password">Contraseña</label><br>
+            <input type="password" name="password" placeholder="password" required /><br><br>
+            
+            <input type="submit" value="Guardar" />
+        </form>
+    </body>
+</html>

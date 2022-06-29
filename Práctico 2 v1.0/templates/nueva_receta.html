@@ -1,0 +1,85 @@
+{% extends "base_template.html" %}
+{% block title %}Nueva Receta{% endblock %}
+{% block content %}
+<body>
+    <h1>Sancho Panza</h1>
+    <hr/>
+    <h2>Nueva Receta</h2>
+    <form action = "{{ url_for('ingresar_receta') }}" method = "post" class = "container">
+        <label for = "nombre">Nombre de la receta: </label>
+        <input type = "text" name = "nombre" placeholder = "Ejemplo" required /><br>
+
+        <label for = "tiempo">Tiempo de elaboración: </label>
+        <input type= "number" name = "tiempo" placeholder = "0.0 minutos" required min="1" /><br>
+
+        <label for = "ingrediente">Ingredientes necesarios:</label><br><br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Unidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" name = "nombre_ingrediente1" /></td>
+                    <td><input type="number" name = "cantidad1" min="0" /></td>
+                    <td><input type="text" name = "unidad1" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name = "nombre_ingrediente2" /></td>
+                    <td><input type="number" name = "cantidad2" min="0" /></td>
+                    <td><input type="text" name = "unidad2" min="0" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name = "nombre_ingrediente3" /></td>
+                    <td><input type="number" name = "cantidad3" min="0" /></td>
+                    <td><input type="text" name = "unidad3" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name = "nombre_ingrediente4" /></td>
+                    <td><input type="number" name = "cantidad4" min="0" /></td>
+                    <td><input type="text" name = "unidad4" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name = "nombre_ingrediente5" /></td>
+                    <td><input type="number" name = "cantidad5" min="0" /></td>
+                    <td><input type="text" name = "unidad5" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name = "nombre_ingrediente6" /></td>
+                    <td><input type="number" name = "cantidad6" min="0" /></td>
+                    <td><input type="text" name = "unidad6" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name = "nombre_ingrediente7" /></td>
+                    <td><input type="number" name = "cantidad7" min="0" /></td>
+                    <td><input type="text" name = "unidad7" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name = "nombre_ingrediente8" /></td>
+                    <td><input type="number" name = "cantidad8" min="0" /></td>
+                    <td><input type="text" name = "unidad8" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name = "nombre_ingrediente9" /></td>
+                    <td><input type="number" name = "cantidad9" min="0" /></td>
+                    <td><input type="text" name = "unidad9" /></td>
+                </tr>
+                <tr>
+                    <td><input type="text" name = "nombre_ingrediente10" /></td>
+                    <td><input type="number" name = "cantidad10" min="0" /></td>
+                    <td><input type="text" name = "unidad10" /></td>
+                </tr>
+            </tbody>
+        </table>
+        <br><br>
+        <label for = "elaboración">Elaboración: </label><br>
+        <textarea name = "elaboración" placeholder = "Elaboración..." cols = "60" rows = "4" required></textarea><br>
+        <input id="userId" name="userId" type="hidden" value="{{usuario.id}}" />
+        <br>
+        <input type="submit" name="Publicar" />
+    </form>
+</body>
+{% endblock %}

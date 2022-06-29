@@ -1,0 +1,15 @@
+{% extends "base_template.html" %}
+{% block title %}Receta_tiempo_elaboracion{% endblock %}
+{% block content %}
+<body>
+    <h1>Sancho Panza</h1>
+    <hr/>
+    <h2>Recetas por tiempo de elaboración</h2>
+    <form action="{{ url_for('consultar_tiempo_elaboracion') }}" method="post" class="container">
+        <label for="tiempo">Tiempo de la receta: </label>
+        <input type="number" name="tiempo" placeholder="Tiempo..." required min="0" />
+        <input type="submit" value="Buscar" />
+        <input type="hidden" id="aviso" name="aviso" value="False"><br><br>
+    </form>
+</body>
+{% endblock %}
